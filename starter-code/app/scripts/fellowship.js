@@ -12,7 +12,7 @@ var buddies = [
   'Gandalf the Grey',
   'Legolas',
   'Gimli',
-  'Strider',
+  'Strider',//aka Aragorn
   'Boromir'
 ];
 
@@ -25,9 +25,33 @@ var body = document.querySelector('body');
 
 function makeMiddleEarth() {
   // create a section tag with an id of middle-earth
+  var midEarth = document.createElement("section");
+  midEarth.id = "middle-earth";
   // inside, add each land as an article tag
+  var shire = document.createElement("article");
+  midEarth.appendChild(shire);
+
+  var elves = document.createElement("article");
+  midEarth.appendChild(elves);
+
+  var orcs = document.createElement("article");
+  midEarth.appendChild(orcs);
+
   // inside each article tag include an h1 with the name of the land
+  var shireName = document.createElement("h1");
+  shireName.innerHTML = "The Shire";
+  shire.appendChild(shireName);
+
+  var elfName = document.createElement("h1");
+  elfName.innerHTML = "Rivendell";
+  elves.appendChild(elfName);
+
+  var orcName = document.createElement("h1");
+  orcName.innerHTML = "Mordor";
+  orcs.appendChild(orcName);
+
   // append middle-earth to your document body
+  body.appendChild(midEarth);
 }
 
 makeMiddleEarth();
