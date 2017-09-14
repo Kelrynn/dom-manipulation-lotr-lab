@@ -1,5 +1,5 @@
 console.log("Linked.");
-var debug = false;
+var debug = true;
 
 // Dramatis Personae
 var hobbits = [
@@ -39,9 +39,7 @@ function makeMiddleEarth() {
   }
    body.appendChild(midEarth);
 }
-
 makeMiddleEarth();
-
 
 // Part 2
 
@@ -59,7 +57,6 @@ function makeHobbits() {
   }
   // give each hobbit a class of hobbit
 }
-
 makeHobbits();
 
 // Part 3
@@ -74,7 +71,6 @@ function keepItSecretKeepItSafe() {
   ring.addEventListener("click",nazgulScreech);
   // add the ring as a child of Frodo
   var frodo = document.getElementById("Frodo");
-  console.log(frodo);
   frodo.appendChild(ring);
 }
 keepItSecretKeepItSafe();
@@ -99,22 +95,28 @@ function makeBuddies() {
   aside.appendChild(ol);
   document.getElementById('Rivendell').appendChild(aside);
 }
-
 makeBuddies();
+
 // Part 5
 
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+  document.getElementById('Strider').innerHTML = "Aragorn";
 }
-
+beautifulStranger();
 
 // Part 6
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+  var smallPeople = document.querySelectorAll(".hobbit");
+  var elf = document.getElementsByTagName("ol")[1];
+  for (var i = 0; i < smallPeople.length; i++) {
+    elf.appendChild(smallPeople[i]);
+  }
 }
-
+leaveTheShire();
 
 // Part 7
 
@@ -124,7 +126,7 @@ function forgeTheFellowShip() {
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
 }
-
+forgeTheFellowShip();
 
 // Part 8
 
@@ -134,7 +136,7 @@ function theBalrog() {
   // apply style to the element
   // make the background 'white', add a grey border
 }
-
+theBalrog();
 
 // Part 9
 
