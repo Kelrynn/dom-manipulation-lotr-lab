@@ -31,6 +31,7 @@ function makeMiddleEarth() {
   // inside, add each land as an article tag
   for (var i = 0; i < lands.length; i++){
     var art = document.createElement("article");
+    art.id = lands[i];
     midEarth.appendChild(art);
     var h1 = document.createElement("h1");
     h1.innerHTML = lands[i];
@@ -82,10 +83,24 @@ keepItSecretKeepItSafe();
 
 
 function makeBuddies() {
-  
+  // create an aside tag
+  var aside = document.createElement("aside");
+  // attach an unordered list of the 'buddies' in the aside
+  var ol = document.createElement("ol");
+
+  for (var i = 0; i < buddies.length; i++) {
+    var li = document.createElement("li");
+    li.className = "buddies";
+    li.id = buddies[i].split(" ")[0];
+    li.innerHTML = buddies[i];
+    ol.appendChild(li);
+  }
+  // insert your aside as a child element of rivendell
+  aside.appendChild(ol);
+  document.getElementById('Rivendell').appendChild(aside);
 }
 
-
+makeBuddies();
 // Part 5
 
 
