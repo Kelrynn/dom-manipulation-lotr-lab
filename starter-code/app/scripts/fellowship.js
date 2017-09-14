@@ -1,4 +1,5 @@
 console.log("Linked.");
+var debug = false;
 
 // Dramatis Personae
 var hobbits = [
@@ -51,6 +52,7 @@ function makeHobbits() {
   for (var i = 0; i < hobbits.length; i++){
     var li = document.createElement("li");
     li.className = "hobbit";
+    li.id = hobbits[i].split(" ")[0];
     li.innerHTML = hobbits[i];
     ol.appendChild(li);
   }
@@ -63,19 +65,24 @@ makeHobbits();
 
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
+  var ring = document.createElement("div");
+  ring.id = "the-ring";
   // give the div a class of 'magic-imbued-jewelry'
+  ring.className = "magic-imbued-jewelry";
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
+  ring.addEventListener("click",nazgulScreech);
   // add the ring as a child of Frodo
+  var frodo = document.getElementById("Frodo");
+  console.log(frodo);
+  frodo.appendChild(ring);
 }
-
+keepItSecretKeepItSafe();
 
 // Part 4
 
 
 function makeBuddies() {
-  // create an aside tag
-  // attach an unordered list of the 'buddies' in the aside
-  // insert your aside as a child element of rivendell
+  
 }
 
 
