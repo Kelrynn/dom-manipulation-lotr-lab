@@ -64,8 +64,6 @@ article:nth-child(2) {
   left: 47%;
   top: 34%;
 }
-.w3-animate-opacity{animation:opac 1.5s}@keyframes opac{from{opacity:0} to{opacity:1}}
-.w3-animate-opacity-reverse{animation:opac 1.0s}@keyframes opac{from{opacity:1} to{opacity:0}}
 
 /* Mordor */
 article:nth-child(3) {

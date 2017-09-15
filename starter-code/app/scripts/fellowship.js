@@ -133,7 +133,7 @@ function forgeTheFellowShip() {
   for (var i = 0; i < 8; i++) {
     var member = document.getElementsByTagName("li")[0];
     ul.appendChild(member);
-    //alert(member.textContent + " has joined the party.")
+    alert(member.textContent + " has joined the party.")
   }
   // after each character is added make an alert that they have joined your party
 }
@@ -157,7 +157,7 @@ theBalrog();
 
 function hornOfGondor() {
   // pop up an alert that the horn of gondor has been blown
-  //alert("The Horn of Gondor has been blown, Boromir has been killed by the Uruk-hai!");
+  alert("The Horn of Gondor has been blown, Boromir has been killed by the Uruk-hai!");
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   var borry = document.getElementById('Boromir');
@@ -215,20 +215,20 @@ function thereAndBackAgain() {
     ul.appendChild(hobitses[i]);
   }g
 }
-//thereAndBackAgain();
+thereAndBackAgain();
 
 function theOneRing(){
   nazgulScreech();
   if (doomCounter == 3){
-    body.innerHTML = "The Ring has been returned to Sauron and the world is over.";
+    body.innerHTML = "The Ring has been returned to SAURON and the world is over.";
     body.style.textAlign = "center";
     body.style.color = "red";
     body.style.background = "black";
-    body.style.paddingTop = "50px";
-    body.style.fontSize = "150px";
-
+    body.style.boxSizing = "border-box";
+    body.style.padding = "100px";
+    body.style.fontSize = "125px";
+    body.style.float = "left";
   }
-
   var parent = this.parentElement;
   parent.style.opacity = "0";
   setTimeout(function(){parent.style.opacity = "1";},3000);
