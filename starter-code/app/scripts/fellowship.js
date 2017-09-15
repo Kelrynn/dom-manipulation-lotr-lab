@@ -132,7 +132,7 @@ function forgeTheFellowShip() {
   for (var i = 0; i < 8; i++) {
     var member = document.getElementsByTagName("li")[0];
     ul.appendChild(member);
-    alert(member.textContent + " has joined the party.")
+    //alert(member.textContent + " has joined the party.")
   }
   // after each character is added make an alert that they have joined your party
 }
@@ -148,7 +148,7 @@ function theBalrog() {
   var gandy = document.getElementById('Gandalf');
   gandy.innerHTML = "Gandalf the White";
   gandy.style.background = 'white';
-  gandy.border = '2px solid grey';
+  gandy.style.border = "2px solid grey";
 }
 theBalrog();
 
