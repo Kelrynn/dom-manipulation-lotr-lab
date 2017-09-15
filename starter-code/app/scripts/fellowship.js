@@ -188,15 +188,15 @@ itsDangerousToGoAlone();
 
 function weWantsIt() {
   // Create a div with an id of 'gollum' and add it to Mordor
-  var gollum = document.createElement('div');
-  gollum.id = "gollum";
+  var smeagol = document.createElement('div');
+  smeagol.id = "gollum";
   var mordor = document.getElementById('Mordor');
-  mordor.appendChild(gollum);
+  mordor.appendChild(smeagol);
   // Remove the ring from Frodo and give it to Gollum
   var ring = document.getElementById('the-ring');
-  gollum.appendChild(ring);
+  smeagol.appendChild(ring);
   // Move Gollum into Mount Doom
-  document.getElementById("mount-doom").appendChild(gollum);
+  document.getElementById("mount-doom").appendChild(smeagol);
 }
 weWantsIt();
 
@@ -204,6 +204,19 @@ weWantsIt();
 
 function thereAndBackAgain() {
   // remove Gollum and the Ring from the document
+  document.getElementById('mount-doom').removeChild(document.getElementById('gollum'));
   // remove all the baddies from the document
+  document.getElementById('Mordor').style.background = "none";
   // Move all the hobbits back to the shire
+  var hobitses = document.querySelectorAll(".hobbit");
+  var ul = document.querySelector('ul');
+  for (var i = 0; i < 4; i++) {
+    ul.appendChild(hobitses[i]);
+  }
 }
+thereAndBackAgain();
+
+
+
+
+
