@@ -188,10 +188,17 @@ itsDangerousToGoAlone();
 
 function weWantsIt() {
   // Create a div with an id of 'gollum' and add it to Mordor
+  var gollum = document.createElement('div');
+  gollum.id = "gollum";
+  var mordor = document.getElementById('Mordor');
+  mordor.appendChild(gollum);
   // Remove the ring from Frodo and give it to Gollum
+  var ring = document.getElementById('the-ring');
+  gollum.appendChild(ring);
   // Move Gollum into Mount Doom
+  document.getElementById("mount-doom").appendChild(gollum);
 }
-
+weWantsIt();
 
 // Part 12
 
