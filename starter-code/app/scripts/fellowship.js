@@ -1,5 +1,6 @@
 console.log("Linked.");
-var debug = true;
+var debug = false;
+var doomCounter = 1;
 
 // Dramatis Personae
 var hobbits = [
@@ -68,7 +69,7 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   ring.className = "magic-imbued-jewelry";
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
-  ring.addEventListener("click",nazgulScreech);
+  ring.addEventListener("click",theOneRing);
   // add the ring as a child of Frodo
   var frodo = document.getElementById("Frodo");
   frodo.appendChild(ring);
@@ -156,7 +157,7 @@ theBalrog();
 
 function hornOfGondor() {
   // pop up an alert that the horn of gondor has been blown
- // alert("The Horn of Gondor has been blown, Boromir has been killed by the Uruk-hai!");
+  //alert("The Horn of Gondor has been blown, Boromir has been killed by the Uruk-hai!");
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   var borry = document.getElementById('Boromir');
@@ -212,9 +213,28 @@ function thereAndBackAgain() {
   var ul = document.querySelector('ul');
   for (var i = 0; i < 4; i++) {
     ul.appendChild(hobitses[i]);
-  }
+  }g
 }
-thereAndBackAgain();
+//thereAndBackAgain();
+
+function theOneRing(){
+  nazgulScreech();
+  if (doomCounter == 3){
+    body.innerHTML = "The Ring has been returned to Sauron and the world is over.";
+    body.style.textAlign = "center";
+    body.style.color = "red";
+    body.style.background = "black";
+    body.style.paddingTop = "50px";
+    body.style.fontSize = "150px";
+
+  }
+
+  var parent = this.parentElement;
+  parent.style.opacity = "0";
+  setTimeout(function(){parent.style.opacity = "1";},3000);
+  doomCounter++;
+}
+
 
 
 
