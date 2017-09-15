@@ -40,7 +40,6 @@ function makeMiddleEarth() {
   }
    body.appendChild(midEarth);
 }
-makeMiddleEarth();
 
 // Part 2
 
@@ -58,7 +57,6 @@ function makeHobbits() {
   }
   // give each hobbit a class of hobbit
 }
-makeHobbits();
 
 // Part 3
 
@@ -70,11 +68,11 @@ function keepItSecretKeepItSafe() {
   ring.className = "magic-imbued-jewelry";
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   ring.addEventListener("click",theOneRing);
+  ring.style.zIndex = "3";
   // add the ring as a child of Frodo
   var frodo = document.getElementById("Frodo");
   frodo.appendChild(ring);
 }
-keepItSecretKeepItSafe();
 
 // Part 4
 
@@ -96,7 +94,6 @@ function makeBuddies() {
   aside.appendChild(ul);
   document.getElementById('Rivendell').appendChild(aside);
 }
-makeBuddies();
 
 // Part 5
 
@@ -105,7 +102,6 @@ function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
   document.getElementById('Strider').innerHTML = "Aragorn";
 }
-beautifulStranger();
 
 // Part 6
 
@@ -117,7 +113,6 @@ function leaveTheShire() {
     elf.appendChild(smallPeople[i]);
   }
 }
-leaveTheShire();
 
 // Part 7
 
@@ -137,7 +132,6 @@ function forgeTheFellowShip() {
   }
   // after each character is added make an alert that they have joined your party
 }
-forgeTheFellowShip();
 
 // Part 8
 
@@ -151,7 +145,6 @@ function theBalrog() {
   gandy.style.background = 'white';
   gandy.style.border = "2px solid grey";
 }
-theBalrog();
 
 // Part 9
 
@@ -166,12 +159,12 @@ function hornOfGondor() {
   document.getElementsByTagName('ul')[2].removeChild(borry);
 
 }
-hornOfGondor();
 
 // Part 10
 
 function itsDangerousToGoAlone(){
   // take Frodo and Sam out of the fellowship and move them to Mordor
+  console.log("casual zelda reference");
   var ul = document.createElement('ul');
   var mordor = document.getElementById('Mordor');
   mordor.appendChild(ul);
@@ -183,7 +176,6 @@ function itsDangerousToGoAlone(){
   div.id = "mount-doom";
   mordor.appendChild(div);
 }
-itsDangerousToGoAlone();
 
 // Part 11
 
@@ -199,7 +191,6 @@ function weWantsIt() {
   // Move Gollum into Mount Doom
   document.getElementById("mount-doom").appendChild(smeagol);
 }
-weWantsIt();
 
 // Part 12
 
@@ -213,9 +204,8 @@ function thereAndBackAgain() {
   var ul = document.querySelector('ul');
   for (var i = 0; i < 4; i++) {
     ul.appendChild(hobitses[i]);
-  }g
+  }
 }
-thereAndBackAgain();
 
 function theOneRing(){
   nazgulScreech();
@@ -227,7 +217,6 @@ function theOneRing(){
     body.style.boxSizing = "border-box";
     body.style.padding = "100px";
     body.style.fontSize = "125px";
-    body.style.float = "left";
   }
   var parent = this.parentElement;
   parent.style.opacity = "0";
@@ -235,7 +224,64 @@ function theOneRing(){
   doomCounter++;
 }
 
+var chapter = 0;
 
+function story(){
+  // if (chapter > 0){
+  //   this.innerHTML = "Chapter: " + chapter +"\nNext Chapter";
+  // } else (chapter === 12){
+  //   this.innerHTML = "Adventure Reset!";
+  // }
+
+  switch (chapter){
+    default:
+      this.innerHTML = "Chapter: " + chapter +"\nNext Chapter";
+      break;
+    case 11: 
+      this.innerHTML = "Reset Adventure?"
+      break;
+    case 12:
+      this.innerHTML = "Are you sure?"
+      break;
+      case 0:
+        this.innerHTML = "Let's Go!"
+        break;
+
+  }
+
+
+  var funcs = [
+    makeMiddleEarth,
+    makeHobbits,
+    keepItSecretKeepItSafe,
+    makeBuddies,
+    beautifulStranger,
+    leaveTheShire,
+    forgeTheFellowShip,
+    theBalrog,
+    hornOfGondor,
+    itsDangerousToGoAlone,
+    weWantsIt,
+    thereAndBackAgain];
+  chapter <= 11 ? funcs[chapter++]() : resetAdventure();
+
+}
+
+function createButton(){
+  var button = document.createElement("button");
+  button.innerHTML = "Begin Adventure!";
+  body.appendChild(button);
+  button.style.position ="absolute";
+  button.style.bottom = "0";
+  button.style.zIndex = "1";
+  button.addEventListener("click",story);
+}
+
+function resetAdventure(){
+  chapter = 0;
+  body.removeChild(document.getElementById("middle-earth"));
+}
+createButton();
 
 
 
