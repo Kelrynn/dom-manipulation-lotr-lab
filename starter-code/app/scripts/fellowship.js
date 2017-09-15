@@ -46,14 +46,14 @@ makeMiddleEarth();
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   var shire = document.querySelector("article");
-  var ol = document.createElement("ol");
-  shire.appendChild(ol);
+  var ul = document.createElement("ul");
+  shire.appendChild(ul);
   for (var i = 0; i < hobbits.length; i++){
     var li = document.createElement("li");
     li.className = "hobbit";
     li.id = hobbits[i].split(" ")[0];
     li.innerHTML = hobbits[i];
-    ol.appendChild(li);
+    ul.appendChild(li);
   }
   // give each hobbit a class of hobbit
 }
@@ -82,17 +82,17 @@ function makeBuddies() {
   // create an aside tag
   var aside = document.createElement("aside");
   // attach an unordered list of the 'buddies' in the aside
-  var ol = document.createElement("ol");
+  var ul = document.createElement("ul");
 
   for (var i = 0; i < buddies.length; i++) {
     var li = document.createElement("li");
     li.className = "buddies";
     li.id = buddies[i].split(" ")[0];
     li.innerHTML = buddies[i];
-    ol.appendChild(li);
+    ul.appendChild(li);
   }
   // insert your aside as a child element of rivendell
-  aside.appendChild(ol);
+  aside.appendChild(ul);
   document.getElementById('Rivendell').appendChild(aside);
 }
 makeBuddies();
@@ -111,7 +111,7 @@ beautifulStranger();
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
   var smallPeople = document.querySelectorAll(".hobbit");
-  var elf = document.getElementsByTagName("ol")[1];
+  var elf = document.getElementsByTagName("ul")[1];
   for (var i = 0; i < smallPeople.length; i++) {
     elf.appendChild(smallPeople[i]);
   }
@@ -123,7 +123,17 @@ leaveTheShire();
 
 function forgeTheFellowShip() {
   // create a new div called 'the-fellowship' within rivendell
+  var div = document.createElement("div");
+  div.id = 'the-fellowship';
+  document.getElementById('Rivendell').appendChild(div);
+  var ul = document.createElement("ul");
+  div.appendChild(ul);
   // add each hobbit and buddy one at a time to 'the-fellowship'
+  for (var i = 0; i < 8; i++) {
+    var member = document.getElementsByTagName("li")[0];
+    ul.appendChild(member);
+    alert(member.textContent + " has joined the party.")
+  }
   // after each character is added make an alert that they have joined your party
 }
 forgeTheFellowShip();
@@ -135,6 +145,10 @@ function theBalrog() {
   // change the 'Gandalf' textNode to 'Gandalf the White'
   // apply style to the element
   // make the background 'white', add a grey border
+  var gandy = document.getElementById('Gandalf');
+  gandy.innerHTML = "Gandalf the White";
+  gandy.style.background = 'white';
+  gandy.border = '2px solid grey';
 }
 theBalrog();
 
